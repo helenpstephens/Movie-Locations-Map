@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "--with-html"  ]; then
+    zip -r package.zip public/ *.js package.json -x public/ public/.git/**\* public/.git/ public/README.md
+else
+    zip package.zip *.js package.json;
+fi
