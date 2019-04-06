@@ -20,14 +20,7 @@ client.connect((err) => {
     assert.equal(null, err);
     console.log("Connected successfully to server");
 
-    var db = client.db(config.dbName);
-    db.collection("coords").deleteMany({});
-
-    // Insert some stub coords
-    db.collection("coords").insertMany([
-        {"lng": "-2.991248", "lat": "53.409291", "film": "Brookside", "description": "Brookside Close"},
-        {"lng": "-0.450038", "lat": "51.021197", "film": "Ever Decreasing Circles", "description": "The Street where the characters live"},
-    ])
+   
 });
 
 // Serve static content in ./public
@@ -68,7 +61,11 @@ const coordSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  description: {
+  info: {
+    type: String,
+    trim: true,
+  },
+  visited: {
     type: String,
     trim: true,
   },
